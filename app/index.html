@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+<title>WebView App</title>
+<style>
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    .control-panel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 10px;
+        background: #4a6bdf;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    button:hover {
+        background: #3a5bbf;
+    }
+
+    .code-example {
+        margin-top: 30px;
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+
+    pre {
+        margin: 0;
+    }
+
+    code {
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        color: #333;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>WebView 控制面板</h1>
+
+        <div class="control-panel">
+            <button onclick="mata.win.minimize()">最小化</button>
+            <button onclick="mata.win.maximize()">最大化</button>
+            <button onclick="mata.win.restore()">恢复</button>
+            <button onclick="mata.win.close()">关闭窗口</button>
+            <button onclick="mata.win.center()">居中窗口</button>
+            <button onclick="mata.alert('Hello World!')">显示提示</button>
+            <button onclick="mata.win.title('新标题 ' + Date.now())">设置标题</button>
+            <button onclick="mata.win.resize(800, 600)">调整大小</button>
+        </div>
+
+        <div class="code-example">
+            <h3>JavaScript API 示例</h3>
+            <pre><code>
+// 最小化窗口
+mata.win.minimize()
+
+// 最大化窗口
+mata.win.maximize()
+
+// 恢复窗口
+mata.win.restore()
+
+// 关闭窗口
+mata.win.close()
+
+// 居中窗口
+mata.win.center()
+
+// 调整窗口大小 (宽, 高)
+mata.win.resize(800, 600)
+
+// 设置窗口标题
+mata.win.title('新标题')
+
+// 显示提示框
+mata.alert('消息内容')
+
+// 窗口最小化事件
+document.addEventListener("mata-win-minimized", function() {
+    console.log('窗口已最小化');
+});
+
+// 窗口恢复事件
+document.addEventListener("mata-win-restored", function() {
+    console.log('窗口已恢复');
+});
+
+// 窗口最大化事件
+document.addEventListener("mata-win-maximized", function() {
+    console.log('窗口已最大化');
+});</code></pre>
+        </div>
+    </div>
+
+    <script>
+        // 窗口标题和大小控制
+        mata.win.title = function (title) {
+            if (typeof title === 'string') {
+                mata_win_title(title);
+            }
+        };
+
+        mata.win.resize = function (width, height) {
+            if (typeof width === 'number' && typeof height === 'number') {
+                mata_win_resize(width, height);
+            }
+        };
+
+
+        mata.win.center();
+
+        // 窗口事件监听
+        document.addEventListener("mata-win-minimized", function () {
+            console.log('窗口已最小化');
+        });
+
+        document.addEventListener("mata-win-restored", function () {
+            console.log('窗口已恢复');
+        });
+
+        document.addEventListener("mata-win-maximized", function () {
+            console.log('窗口已最大化');
+        });
+    </script>
+</body>
+
+</html>
