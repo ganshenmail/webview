@@ -36,7 +36,7 @@ go build -o main.exe
 
 ### 服务器配置
 - 地址: 127.0.0.1
-- 端口: 60088
+- 端口: 随机
 
 ### 调试模式
 通过命令行参数 `--debug` 启用调试模式
@@ -78,20 +78,7 @@ mata.win.title("新标题");
 mata.win.resize(宽度, 高度);
 ```
 
-### 系统集成
-```javascript
-// 剪贴板操作
-mata.clipboard.readText();
-mata.clipboard.writeText("文本内容");
-
-// 文件系统操作
-mata.fs.readFile("文件路径");
-```
-
 ## 扩展应用
 1. 在 `app` 目录中添加新的HTML/JS/CSS文件
 2. 扩展Go后端功能
 3. 通过 `mata` JavaScript对象暴露新的API
-
-## 许可证
-MIT 许可证 - 详情参见 [LICENSE](LICENSE) 文件
