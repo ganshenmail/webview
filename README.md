@@ -1,4 +1,4 @@
-# MATAVIEW - Go WebView 桌面应用框架
+# Go WebView 桌面应用框架
 
 ## 概述
 MATAVIEW 是一个使用 Go 语言和 webview_go 库构建的桌面应用框架。它采用混合开发模式，结合了原生窗口管理和Web技术实现的用户界面。
